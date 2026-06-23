@@ -29,7 +29,9 @@ jobs:
 
       - name: Generate activity SVGs
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # 비공개 저장소까지 집계하려면 org repo 읽기 권한 PAT을 ORG_ACTIVITY_TOKEN 시크릿으로 등록.
+          # 미등록 시 기본 GITHUB_TOKEN 으로 폴백(공개 저장소만 집계됨).
+          GH_TOKEN: ${{ secrets.ORG_ACTIVITY_TOKEN || secrets.GITHUB_TOKEN }}
           ORG: bricks8c
           OUT_DIR: profile/assets
         run: python3 scripts/generate_activity.py

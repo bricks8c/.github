@@ -2,7 +2,8 @@
 """조직 공개 저장소의 커밋을 모아 활동 대시보드 + 잔디 히트맵 SVG를 생성한다.
 
 - 외부 패키지 의존 없음 (표준 라이브러리만 사용)
-- CI: GH_TOKEN 환경변수로 인증 / 로컬: 토큰 없이도 동작(레이트 리밋 있음)
+- 비공개 저장소까지 집계하려면 org repo 읽기 권한(Contents/Metadata: read)이 있는
+  토큰을 GH_TOKEN 으로 넘긴다. 토큰이 없으면 공개 저장소만 집계된다.
 - 사용:  GH_TOKEN=xxx python3 scripts/generate_activity.py
 """
 
@@ -43,12 +44,15 @@ def gh_get(url: str):
 
 
 def list_repos() -> list[str]:
+    # type=all → 공개 + 비공개 모두 (비공개는 권한 있는 토큰 필요).
+    # 포크 · 아카이브 저장소는 활동 집계에서 제외.
     repos, page = [], 1
     while True:
-        batch = gh_get(f"{API}/orgs/{ORG}/repos?per_page=100&type=public&page={page}")
+        batch = gh_get(f"{API}/orgs/{ORG}/repos?per_page=100&type=all&page={page}")
         if not batch:
             break
-        repos += [r["name"] for r in batch]
+        repos += [r["name"] for r in batch
+                  if not r.get("fork") and not r.get("archived")]
         if len(batch) < 100:
             break
         page += 1
