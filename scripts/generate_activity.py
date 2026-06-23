@@ -167,9 +167,9 @@ def render_dashboard(repos, by_day, total, active_days, streak) -> str:
 
 
 def render_heatmap(by_day) -> str:
-    cell, gap = 11, 3
+    cell, gap = 16, 4
     step = cell + gap
-    weeks = 53
+    weeks = 26  # 최근 약 6개월 (칸을 크게 해 데이터가 적어도 꽉 차 보이게)
     today = datetime.now(timezone.utc).date()
     # 그리드 끝(오른쪽) = 이번 주, 일요일 시작 기준
     end_sunday = today + timedelta(days=(6 - today.weekday()) % 7)
@@ -236,6 +236,18 @@ def render_heatmap(by_day) -> str:
 </svg>'''
 
 
+def write_badge(name, label, message):
+    # shields.io endpoint 배지 스키마 (README에서 자동 갱신되는 숫자 배지)
+    payload = {
+        "schemaVersion": 1,
+        "label": label,
+        "message": str(message),
+        "color": ACCENT.lstrip("#"),
+        "labelColor": "0a0a0a",
+    }
+    (OUT_DIR / name).write_text(json.dumps(payload), encoding="utf-8")
+
+
 def main():
     repos, dates = collect()
     by_day, total, active_days, streak = compute_stats(dates)
@@ -244,9 +256,13 @@ def main():
         render_dashboard(repos, by_day, total, active_days, streak), encoding="utf-8")
     (OUT_DIR / "contribution-heatmap.svg").write_text(
         render_heatmap(by_day), encoding="utf-8")
+    write_badge("badge-repos.json", "repos", len(repos))
+    write_badge("badge-commits.json", "commits", total)
+    write_badge("badge-active.json", "active days", active_days)
     print(f"repos={len(repos)} commits={total} active_days={active_days} streak={streak}")
     print(f"→ {OUT_DIR}/activity-dashboard.svg")
     print(f"→ {OUT_DIR}/contribution-heatmap.svg")
+    print(f"→ {OUT_DIR}/badge-*.json")
 
 
 if __name__ == "__main__":

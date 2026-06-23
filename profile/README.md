@@ -25,6 +25,13 @@
 
 <div align="center">
 
+![Repos](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fbricks8c%2F.github%2Fmain%2Fprofile%2Fassets%2Fbadge-repos.json&style=for-the-badge)
+![Commits](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fbricks8c%2F.github%2Fmain%2Fprofile%2Fassets%2Fbadge-commits.json&style=for-the-badge)
+![Active days](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fbricks8c%2F.github%2Fmain%2Fprofile%2Fassets%2Fbadge-active.json&style=for-the-badge)
+
+<br/>
+<br/>
+
 <img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=600&size=24&duration=3500&pause=800&color=FF4500&center=true&vCenter=true&width=620&height=55&lines=Building+the+future%2C+brick+by+brick+%F0%9F%A7%B1;%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%99%80+AI%EB%A1%9C+%EC%84%B1%EC%9E%A5%EC%9D%84+%EB%A7%8C%EB%93%AD%EB%8B%88%EB%8B%A4;BRICKS%E2%88%9E" alt="Building brick by brick" />
 
 <br/>
