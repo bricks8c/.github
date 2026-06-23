@@ -1,0 +1,49 @@
+name: Update activity visuals
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "0 0 * * *" # 매일 00:00 UTC 갱신
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# 동시에 한 번만 실행
+concurrency:
+  group: activity-visuals
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Generate activity SVGs
+        env:
+          # 비공개 저장소까지 집계하려면 org repo 읽기 권한 PAT을 ORG_ACTIVITY_TOKEN 시크릿으로 등록.
+          # 미등록 시 기본 GITHUB_TOKEN 으로 폴백(공개 저장소만 집계됨).
+          GH_TOKEN: ${{ secrets.ORG_ACTIVITY_TOKEN || secrets.GITHUB_TOKEN }}
+          ORG: bricks8c
+          OUT_DIR: profile/assets
+        run: python3 scripts/generate_activity.py
+
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- profile/assets/*.svg; then
+            echo "변경 없음 — 종료"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add profile/assets/activity-dashboard.svg profile/assets/contribution-heatmap.svg
+          git commit -m "chore: 활동 시각화 SVG 자동 갱신 [skip ci]"
+          git push
