@@ -218,12 +218,21 @@ def render_heatmap(by_day) -> str:
                      f'font-size="9" font-family="-apple-system,Segoe UI,sans-serif">{name}</text>')
 
     W = pad_l + weeks * step + 4
-    H = pad_t + 7 * step + 24
-    legend_x = W - 150
+    H = pad_t + 7 * step + 30  # 하단 범례 글자 여백 확보
+
+    # 범례: 오른쪽 정렬 + "More" 글자 폭까지 포함해 잘림 방지
+    sq = cell + 2
+    less_w, more_w, gap = 26, 36, 8
+    legend_w = less_w + gap + 5 * sq + gap + more_w
+    lx = W - 10 - legend_w
+    ly = H - 22
+    ty = H - 10
+    sq_x0 = lx + less_w + gap
     legend = "".join(
-        f'<rect x="{legend_x + 40 + i*(cell+2)}" y="{H-16}" width="{cell}" height="{cell}" rx="2" fill="{HEAT[i]}"/>'
+        f'<rect x="{sq_x0 + i*sq}" y="{ly}" width="{cell}" height="{cell}" rx="2" fill="{HEAT[i]}"/>'
         for i in range(5)
     )
+    more_x = sq_x0 + 5 * sq + gap
 
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img">
   <rect width="{W}" height="{H}" rx="12" fill="{BG}"/>
@@ -231,9 +240,9 @@ def render_heatmap(by_day) -> str:
   {''.join(month_labels)}
   {days_lbl}
   {''.join(cells)}
-  <text x="{legend_x}" y="{H-7}" fill="{MUTED}" font-size="9" font-family="-apple-system,Segoe UI,sans-serif">Less</text>
+  <text x="{lx}" y="{ty}" fill="{MUTED}" font-size="9" font-family="-apple-system,Segoe UI,sans-serif">Less</text>
   {legend}
-  <text x="{legend_x + 40 + 5*(cell+2) + 4}" y="{H-7}" fill="{MUTED}" font-size="9" font-family="-apple-system,Segoe UI,sans-serif">More</text>
+  <text x="{more_x}" y="{ty}" fill="{MUTED}" font-size="9" font-family="-apple-system,Segoe UI,sans-serif">More</text>
 </svg>'''
 
 
