@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="210" viewBox="0 0 480 210" role="img">
+  <rect width="480" height="210" rx="12" fill="#0a0a0a"/>
+  <rect x="0.5" y="0.5" width="479" height="209" rx="12" fill="none" stroke="#222" />
+  <text x="28" y="40" fill="#e6e6e6" font-size="17" font-weight="700"
+    font-family="-apple-system,Segoe UI,sans-serif">BRICKS8 <tspan fill="#FF4500">·</tspan> Building brick by brick 🧱</text>
+  <text x="28" y="58" fill="#8b8b8b" font-size="11"
+    font-family="-apple-system,Segoe UI,sans-serif">조직 공개 저장소 활동 · 자동 갱신</text>
+  <text x="28" y="86" fill="#e6e6e6" font-size="26" font-weight="700" font-family="-apple-system,Segoe UI,sans-serif">4</text><text x="28" y="104" fill="#8b8b8b" font-size="11" font-family="-apple-system,Segoe UI,sans-serif" letter-spacing="1">COMMITS</text>
+  <text x="150" y="86" fill="#e6e6e6" font-size="26" font-weight="700" font-family="-apple-system,Segoe UI,sans-serif">1</text><text x="150" y="104" fill="#8b8b8b" font-size="11" font-family="-apple-system,Segoe UI,sans-serif" letter-spacing="1">ACTIVE DAYS</text>
+  <text x="290" y="86" fill="#e6e6e6" font-size="26" font-weight="700" font-family="-apple-system,Segoe UI,sans-serif">0</text><text x="290" y="104" fill="#8b8b8b" font-size="11" font-family="-apple-system,Segoe UI,sans-serif" letter-spacing="1">DAY STREAK</text>
+  <text x="400" y="86" fill="#e6e6e6" font-size="26" font-weight="700" font-family="-apple-system,Segoe UI,sans-serif">1</text><text x="400" y="104" fill="#8b8b8b" font-size="11" font-family="-apple-system,Segoe UI,sans-serif" letter-spacing="1">REPOS</text>
+  <text x="28" y="116" fill="#8b8b8b" font-size="10" letter-spacing="1"
+    font-family="-apple-system,Segoe UI,sans-serif">COMMITS / WEEK · 최근 12주</text>
+  <rect x="28.0" y="178.0" width="29.8" height="2" rx="2" fill="#FF4500" opacity="0.35"/><rect x="63.8" y="178.0" width="29.8" height="2" rx="2" fill="#FF4500" opacity="0.35"/><rect x="99.7" y="178.0" width="29.8" height="2" rx="2" fill="#FF4500" opacity="0.35"/><rect x="135.5" y="178.0" width="29.8" height="2" rx="2" fill="#FF4500" opacity="0.35"/><rect x="171.3" y="178.0" width="29.8" height="2" rx="2" fill="#FF4500" opacity="0.35"/><rect x="207.2" y="178.0" width="29.8" height="2" rx="2" fill="#FF4500" opacity="0.35"/><rect x="243.0" y="178.0" width="29.8" height="2" rx="2" fill="#FF4500" opacity="0.35"/><rect x="278.8" y="178.0" width="29.8" height="2" rx="2" fill="#FF4500" opacity="0.35"/><rect x="314.7" y="178.0" width="29.8" height="2" rx="2" fill="#FF4500" opacity="0.35"/><rect x="350.5" y="120.0" width="29.8" height="60" rx="2" fill="#FF4500" opacity="1.00"/><rect x="386.3" y="178.0" width="29.8" height="2" rx="2" fill="#FF4500" opacity="0.35"/><rect x="422.2" y="178.0" width="29.8" height="2" rx="2" fill="#FF4500" opacity="0.35"/>
+</svg>
