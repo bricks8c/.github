@@ -188,7 +188,7 @@ def render_heatmap(by_day) -> str:
             return 4
         return 1 + min(3, int(4 * c / hi))
 
-    pad_l, pad_t = 30, 22
+    pad_l, pad_t = 42, 22  # 왼쪽 요일 라벨이 카드 테두리에 잘리지 않도록 여백 확보
     cells, month_labels = [], []
     last_month = None
     for w in range(weeks):
@@ -214,7 +214,7 @@ def render_heatmap(by_day) -> str:
 
     days_lbl = ""
     for d, name in [(1, "Mon"), (3, "Wed"), (5, "Fri")]:
-        days_lbl += (f'<text x="2" y="{pad_t + d*step + cell-1}" fill="{MUTED}" '
+        days_lbl += (f'<text x="11" y="{pad_t + d*step + cell-1}" fill="{MUTED}" '
                      f'font-size="9" font-family="-apple-system,Segoe UI,sans-serif">{name}</text>')
 
     W = pad_l + weeks * step + 4
