@@ -38,12 +38,12 @@ jobs:
 
       - name: Commit if changed
         run: |
-          if git diff --quiet -- profile/assets/*.svg; then
+          if git diff --quiet -- profile/assets/*.svg profile/assets/badge-*.json; then
             echo "변경 없음 — 종료"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add profile/assets/activity-dashboard.svg profile/assets/contribution-heatmap.svg
-          git commit -m "chore: 활동 시각화 SVG 자동 갱신 [skip ci]"
+          git add profile/assets/*.svg profile/assets/badge-*.json
+          git commit -m "chore: 활동 시각화 SVG · 배지 자동 갱신 [skip ci]"
           git push
