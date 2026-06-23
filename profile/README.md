@@ -32,7 +32,7 @@
 <br/>
 <br/>
 
-<img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=600&size=24&duration=3500&pause=800&color=FF4500&center=true&vCenter=true&width=620&height=55&lines=Building+the+future%2C+brick+by+brick+%F0%9F%A7%B1;%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%99%80+AI%EB%A1%9C+%EC%84%B1%EC%9E%A5%EC%9D%84+%EB%A7%8C%EB%93%AD%EB%8B%88%EB%8B%A4;BRICKS%E2%88%9E" alt="Building brick by brick" />
+<img src="https://readme-typing-svg.demolab.com/?font=Space+Mono&weight=700&size=22&duration=3600&pause=900&color=FF4500&center=true&vCenter=true&width=640&height=55&lines=BUSINESS%20GROWTH%20AGENCY;%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%99%80%20AI%EB%A1%9C%20%EB%B8%8C%EB%9E%9C%EB%93%9C%EC%9D%98%20%EC%84%B1%EC%9E%A5%EC%9D%84%20%EC%84%A4%EA%B3%84%ED%95%A9%EB%8B%88%EB%8B%A4;LET%27S%20BUILD%20%E2%88%9E%20%C2%B7%20brick%20by%20brick%20%F0%9F%A7%B1" alt="BRICKS8 — Business Growth Agency" />
 
 <br/>
 

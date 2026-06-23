@@ -20,15 +20,16 @@ ORG = os.environ.get("ORG", "bricks8c")
 API = "https://api.github.com"
 OUT_DIR = Path(os.environ.get("OUT_DIR", "profile/assets"))
 
-# 브랜드 컬러
-BG = "#0a0a0a"
-PANEL = "#111317"
-ACCENT = "#FF4500"
-FG = "#e6e6e6"
-MUTED = "#8b8b8b"
-GRID_EMPTY = "#1b1f24"
-# 잔디 강도(낮음→높음)
-HEAT = ["#1b1f24", "#5c1b00", "#8a2900", "#c23600", "#FF4500"]
+# 브랜드 컬러 (bricks8.com 팔레트와 일치)
+BG = "#0c0a09"       # --ink
+PANEL = "#16110f"    # --ink-2
+ACCENT = "#FF4500"   # --orange
+FG = "#f3ede3"       # --paper
+MUTED = "#8c837a"    # --ash
+LINE = "#2a221d"     # 따뜻한 경계선
+GRID_EMPTY = "#1f1813"
+# 잔디 강도(낮음→높음): 따뜻한 흙빛 → 브랜드 오렌지
+HEAT = ["#1f1813", "#5c1b00", "#8a2900", "#c23600", "#FF4500"]
 
 
 def gh_get(url: str):
@@ -151,7 +152,7 @@ def render_dashboard(repos, by_day, total, active_days, streak) -> str:
 
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img">
   <rect width="{W}" height="{H}" rx="12" fill="{BG}"/>
-  <rect x="0.5" y="0.5" width="{W-1}" height="{H-1}" rx="12" fill="none" stroke="#222" />
+  <rect x="0.5" y="0.5" width="{W-1}" height="{H-1}" rx="12" fill="none" stroke="{LINE}" />
   <text x="28" y="40" fill="{FG}" font-size="17" font-weight="700"
     font-family="-apple-system,Segoe UI,sans-serif">BRICKS8 <tspan fill="{ACCENT}">·</tspan> Building brick by brick 🧱</text>
   <text x="28" y="58" fill="{MUTED}" font-size="11"
@@ -226,7 +227,7 @@ def render_heatmap(by_day) -> str:
 
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img">
   <rect width="{W}" height="{H}" rx="12" fill="{BG}"/>
-  <rect x="0.5" y="0.5" width="{W-1}" height="{H-1}" rx="12" fill="none" stroke="#222"/>
+  <rect x="0.5" y="0.5" width="{W-1}" height="{H-1}" rx="12" fill="none" stroke="{LINE}"/>
   {''.join(month_labels)}
   {days_lbl}
   {''.join(cells)}
@@ -243,7 +244,7 @@ def write_badge(name, label, message):
         "label": label,
         "message": str(message),
         "color": ACCENT.lstrip("#"),
-        "labelColor": "0a0a0a",
+        "labelColor": "0c0a09",
     }
     (OUT_DIR / name).write_text(json.dumps(payload), encoding="utf-8")
 
