@@ -153,10 +153,8 @@ def render_dashboard(repos, by_day, total, active_days, streak) -> str:
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img">
   <rect width="{W}" height="{H}" rx="12" fill="{BG}"/>
   <rect x="0.5" y="0.5" width="{W-1}" height="{H-1}" rx="12" fill="none" stroke="{LINE}" />
-  <text x="28" y="40" fill="{FG}" font-size="17" font-weight="700"
+  <text x="28" y="44" fill="{FG}" font-size="17" font-weight="700"
     font-family="-apple-system,Segoe UI,sans-serif">BRICKS8 <tspan fill="{ACCENT}">·</tspan> Building brick by brick 🧱</text>
-  <text x="28" y="58" fill="{MUTED}" font-size="11"
-    font-family="-apple-system,Segoe UI,sans-serif">조직 공개 저장소 활동 · 자동 갱신</text>
   {stat(28, total, "COMMITS")}
   {stat(150, active_days, "ACTIVE DAYS")}
   {stat(290, streak, "DAY STREAK")}

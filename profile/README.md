@@ -43,10 +43,6 @@
 
 <img src="https://raw.githubusercontent.com/bricks8c/.github/main/profile/assets/contribution-heatmap.svg" alt="커밋 잔디 히트맵" width="100%" />
 
-<br/>
-
-<sub>조직 저장소 활동을 자동으로 시각화합니다 · 매일 갱신 🧱</sub>
-
 </div>
 
 ---
